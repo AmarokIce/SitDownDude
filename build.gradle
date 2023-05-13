@@ -1,0 +1,68 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url = "https://jcenter.bintray.com/"
+        }
+        maven {
+            name = "forge"
+            url = "https://files.minecraftforge.net/maven"
+        }
+        maven {
+            name = "sonatype"
+            url = "https://oss.sonatype.org/content/repositories/snapshots/"
+        }
+    }
+    dependencies {
+        classpath('com.anatawa12.forge:ForgeGradle:1.2-1.0.+') {
+            changing = true
+        }
+    }
+}
+configurations {
+    embed
+    compile.extendsFrom(embed)
+}
+
+apply plugin: 'forge'
+apply plugin: 'idea'
+
+version = "1.0"
+group = "club.someoneice.sitdown"
+archivesBaseName = "SitDownDude"
+
+sourceCompatibility = targetCompatibility = "1.8"
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+minecraft {
+    version = "1.7.10-10.13.4.1614-1.7.10"
+    runDir = "idea"
+}
+
+repositories {
+    maven {
+        name = "nova-committee maven"
+        url = "https://maven.nova-committee.cn/releases"
+    }
+    mavenCentral()
+}
+
+dependencies {
+    // implementation "committee.nova.sittable.forge:sittable-1.7.10:1.0.0"
+    implementation fileTree(dir: 'lib', includes: ['*.jar'])
+}
+
+processResources{
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+        expand 'version': project.version, 'mcversion': project.minecraft.version
+    }
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}
