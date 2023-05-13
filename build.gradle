@@ -50,8 +50,9 @@ repositories {
 }
 
 dependencies {
-    // implementation "committee.nova.sittable.forge:sittable-1.7.10:1.0.0"
-    implementation fileTree(dir: 'lib', includes: ['*.jar'])
+    implementation(project.dependencies.create("committee.nova.sittable.forge:sittable-1.7.10:1.0.0") {
+        transitive = false
+    })
 }
 
 processResources{
