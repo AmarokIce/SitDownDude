@@ -16,7 +16,7 @@ apply plugin: 'net.minecraftforge.gradle'
 
 version = '1.0'
 group = 'club.someoneice.sitdown'
-archivesBaseName = 'ChunkExport-1.18.2'
+archivesBaseName = 'SitDownDude-1.18.2'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
