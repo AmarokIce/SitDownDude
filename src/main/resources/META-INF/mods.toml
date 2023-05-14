@@ -1,0 +1,27 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="Pineapple"
+
+[[mods]]
+modId="sit_down"
+version="${file.jarVersion}"
+displayName="Sit Down Dude!"
+logoFile=""
+credits="Someoneice"
+authors="Someoneice"
+description='''
+'''
+
+[[dependencies.sit_down]]
+    modId="forge"
+    mandatory=true
+    versionRange="[36,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.sit_down]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.5,1.17)"
+    ordering="NONE"
+    side="BOTH"
