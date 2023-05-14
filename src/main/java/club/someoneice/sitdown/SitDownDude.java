@@ -10,6 +10,8 @@ import net.minecraft.block.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.util.registry.Registry;
+import net.minecraftforge.common.ForgeMod;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -25,6 +27,10 @@ import java.util.Optional;
 @Mod(SitDownDude.MODID)
 public class SitDownDude {
     public static final String MODID = "sit_down";
+
+    public SitDownDude() {
+        MinecraftForge.EVENT_BUS.register(this);
+    }
 
     private static Map<Block, SitDownData> readBlockFromDatalist() {
         Map<Block, SitDownData> map = Maps.newHashMap();
